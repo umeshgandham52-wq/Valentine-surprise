@@ -323,13 +323,15 @@ const HeroSection = () => {
             Every moment without you feels incomplete. This is my heart, open for you to see.
           </p>
 
-          <div className="flex items-center justify-center gap-4 mb-12">
+          <div className="flex items-center justify-center gap-4 mb-12 flex-wrap">
             <div className="glass-card rounded-2xl p-6 text-center">
-              <img
-                src={IMAGES.umesh}
-                alt="Umesh"
-                className="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-pink-500"
-              />
+              <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-3 border-3 border-pink-500 shadow-lg shadow-pink-500/30">
+                <img
+                  src={IMAGES.umesh}
+                  alt="Umesh"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
               <p className="font-script text-xl text-pink-400">Umesh</p>
             </div>
             <motion.div
@@ -339,11 +341,13 @@ const HeroSection = () => {
               <Heart className="w-10 h-10 text-pink-500" fill="#FF007F" />
             </motion.div>
             <div className="glass-card rounded-2xl p-6 text-center">
-              <img
-                src={IMAGES.harika}
-                alt="Harika"
-                className="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-purple-500"
-              />
+              <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-3 border-3 border-purple-500 shadow-lg shadow-purple-500/30">
+                <img
+                  src={IMAGES.harika}
+                  alt="Harika"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
               <p className="font-script text-xl text-purple-400">Harika</p>
             </div>
           </div>
