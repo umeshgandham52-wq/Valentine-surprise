@@ -511,21 +511,23 @@ const GallerySection = () => {
           <p className="font-body text-gray-400">Every picture tells our story</p>
         </motion.div>
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="gallery-image w-72 h-96"
+            className="text-center"
             data-testid="gallery-image-umesh"
           >
-            <img
-              src={IMAGES.umesh}
-              alt="Umesh"
-              className="w-full h-full object-cover rounded-2xl border-2 border-pink-500/30"
-            />
-            <p className="font-script text-2xl text-center mt-4 text-pink-400">Umesh</p>
+            <div className="w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden border-2 border-pink-500/30 shadow-xl shadow-pink-500/20 mx-auto">
+              <img
+                src={IMAGES.umesh}
+                alt="Umesh"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+            <p className="font-script text-2xl mt-4 text-pink-400">Umesh</p>
           </motion.div>
 
           <motion.div
@@ -541,15 +543,17 @@ const GallerySection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="gallery-image w-72 h-96"
+            className="text-center"
             data-testid="gallery-image-harika"
           >
-            <img
-              src={IMAGES.harika}
-              alt="Harika"
-              className="w-full h-full object-cover rounded-2xl border-2 border-purple-500/30"
-            />
-            <p className="font-script text-2xl text-center mt-4 text-purple-400">Harika</p>
+            <div className="w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden border-2 border-purple-500/30 shadow-xl shadow-purple-500/20 mx-auto">
+              <img
+                src={IMAGES.harika}
+                alt="Harika"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+            <p className="font-script text-2xl mt-4 text-purple-400">Harika</p>
           </motion.div>
         </div>
       </div>
