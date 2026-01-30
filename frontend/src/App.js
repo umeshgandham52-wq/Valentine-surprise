@@ -4,32 +4,32 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { Heart, Lock, Music, ChevronDown, Calendar, Gift, Star, Sparkles, Clock, HelpCircle, Check, X } from "lucide-react";
+import { Heart, Lock, Music, ChevronDown, Calendar, Gift, Star, Sparkles, Clock, HelpCircle, Check, X, Quote } from "lucide-react";
 
 // Images
 const IMAGES = {
   umesh: "https://customer-assets.emergentagent.com/job_27e2edf0-a83b-43c4-9d0a-3e57c03d0fef/artifacts/lw14iwz3_Gemini_Generated_Image_cd75eocd75eocd75.png",
   harika: "https://customer-assets.emergentagent.com/job_27e2edf0-a83b-43c4-9d0a-3e57c03d0fef/artifacts/ceyh7rjs_WhatsApp%20Image%202026-01-30%20at%2011.21.26.jpeg",
-  rose_day: "https://images.unsplash.com/photo-1518882605630-8eb7c9641e00?w=500",
-  propose_day: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500",
-  chocolate_day: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=500",
-  teddy_day: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500",
-  promise_day: "https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=500",
-  hug_day: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500",
-  kiss_day: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500",
-  valentines_day: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500"
+  rose_day: "https://images.unsplash.com/photo-1518882605630-8eb7c9641e00?w=600&q=80",
+  propose_day: "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=600&q=80",
+  chocolate_day: "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600&q=80",
+  teddy_day: "https://images.unsplash.com/photo-1615031335565-9e80c13fdc8d?w=600&q=80",
+  promise_day: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80",
+  hug_day: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80",
+  kiss_day: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80",
+  valentines_day: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80"
 };
 
-// Valentine's Week Days Data
+// Valentine's Week Days Data with Better Images
 const valentineDays = [
-  { name: "Rose Day", date: "February 7", image: IMAGES.rose_day, description: "A single rose speaks louder than a thousand words. Harika, you are the most beautiful rose in the garden of my life." },
-  { name: "Propose Day", date: "February 8", image: IMAGES.propose_day, description: "Every day I wake up choosing you. Will you always be mine? I promise to love you forever." },
-  { name: "Chocolate Day", date: "February 9", image: IMAGES.chocolate_day, description: "Like chocolate sweetens life, your smile sweetens my every moment. You make my world sweeter, Harika." },
-  { name: "Teddy Day", date: "February 10", image: IMAGES.teddy_day, description: "A teddy to hold when I'm not there. But nothing compares to holding you in my arms, my love." },
-  { name: "Promise Day", date: "February 11", image: IMAGES.promise_day, description: "I promise to stand by you through every storm, to hold your hand through every fear, and to love you forever." },
-  { name: "Hug Day", date: "February 12", image: IMAGES.hug_day, description: "In your arms, I find my peace. Every hug from you heals my soul and makes me feel complete." },
-  { name: "Kiss Day", date: "February 13", image: IMAGES.kiss_day, description: "A kiss is a secret told to the mouth instead of the ear. Every kiss with you tells the story of our love." },
-  { name: "Valentine's Day", date: "February 14", image: IMAGES.valentines_day, description: "You are my Valentine, my everything. Today and always, my heart belongs only to you, Harika." }
+  { name: "Rose Day", date: "February 7", image: "https://images.unsplash.com/photo-1518882605630-8eb7c9641e00?w=600&q=80", description: "A single rose speaks louder than a thousand words. Harika, you are the most beautiful rose in the garden of my life." },
+  { name: "Propose Day", date: "February 8", image: "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=600&q=80", description: "Every day I wake up choosing you. Will you always be mine? I promise to love you forever." },
+  { name: "Chocolate Day", date: "February 9", image: "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600&q=80", description: "Like chocolate sweetens life, your smile sweetens my every moment. You make my world sweeter, Harika." },
+  { name: "Teddy Day", date: "February 10", image: "https://images.unsplash.com/photo-1615031335565-9e80c13fdc8d?w=600&q=80", description: "A teddy to hold when I'm not there. But nothing compares to holding you in my arms, my love." },
+  { name: "Promise Day", date: "February 11", image: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80", description: "I promise to stand by you through every storm, to hold your hand through every fear, and to love you forever." },
+  { name: "Hug Day", date: "February 12", image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80", description: "In your arms, I find my peace. Every hug from you heals my soul and makes me feel complete." },
+  { name: "Kiss Day", date: "February 13", image: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600&q=80", description: "A kiss is a secret told to the mouth instead of the ear. Every kiss with you tells the story of our love." },
+  { name: "Valentine's Day", date: "February 14", image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80", description: "You are my Valentine, my everything. Today and always, my heart belongs only to you, Harika." }
 ];
 
 // Playlist Data - All Songs
@@ -46,33 +46,55 @@ const playlist = [
   { title: "Yemunnave Pilla", artist: "Nallamala", videoId: "LwHWYLUAehI" }
 ];
 
-// Quiz Questions
+// Quiz Questions - Harika answering about Umesh
 const quizQuestions = [
   {
-    question: "What is Umesh's favorite thing about Harika?",
-    options: ["Her smile", "Her eyes", "Her voice", "Everything about her"],
+    question: "What is Umesh's favorite color?",
+    options: ["Blue", "Black", "Red", "White"],
+    correct: 1
+  },
+  {
+    question: "What does Umesh love most about you, Harika?",
+    options: ["Your cooking", "Your smile", "Your voice", "Everything about you"],
     correct: 3
   },
   {
-    question: "What does Umesh miss the most?",
-    options: ["Her cooking", "Her hugs", "Her presence", "All of the above"],
+    question: "What is Umesh's dream with you?",
+    options: ["Travel the world", "Build a home together", "Grow old with you", "All of the above"],
     correct: 3
   },
   {
-    question: "How much does Umesh love Harika?",
-    options: ["A lot", "More than anything", "To infinity", "Beyond infinity and forever"],
+    question: "How does Umesh feel when he's with you?",
+    options: ["Happy", "Complete", "Blessed", "All of the above"],
     correct: 3
   },
   {
-    question: "What is Umesh's promise to Harika?",
-    options: ["To always be there", "To love her forever", "To make her happy", "All of the above"],
-    correct: 3
+    question: "What date is most special to Umesh?",
+    options: ["January 1st", "February 14th", "29th February 2024", "His birthday"],
+    correct: 2
   },
   {
-    question: "What does 'నువ్వుంటే చాలు' mean to Umesh?",
-    options: ["Just words", "A song", "His life's truth", "Everything he feels for Harika"],
-    correct: 3
+    question: "What is Umesh's promise to you?",
+    options: ["To buy you gifts", "To love you forever", "To always agree", "To be rich"],
+    correct: 1
+  },
+  {
+    question: "What song reminds Umesh of you?",
+    options: ["Any sad song", "నువ్వుంటే చాలు", "Party songs", "Rock music"],
+    correct: 1
   }
+];
+
+// Romantic Quotes for Harika
+const romanticQuotes = [
+  "Harika, నువ్వు లేకుండా నా జీవితం అసంపూర్ణం...",
+  "Every heartbeat of mine whispers your name, Harika...",
+  "నీ చిరునవ్వు చూస్తే నా ప్రపంచమే మారిపోతుంది...",
+  "You are my today and all of my tomorrows, Harika...",
+  "నిన్ను ప్రేమించడం నా జీవిత లక్ష్యం...",
+  "In you, I found my forever home, my love...",
+  "Harika, you are the poem I never knew how to write...",
+  "నీతో గడిపిన ప్రతి క్షణం నాకు వరం..."
 ];
 
 // Click Particles Component
@@ -92,16 +114,16 @@ const ClickParticles = () => {
     fpsLimit: 60,
     interactivity: {
       events: { onClick: { enable: true, mode: "push" } },
-      modes: { push: { quantity: 8 } },
+      modes: { push: { quantity: 10 } },
     },
     particles: {
-      color: { value: ["#FF007F", "#BF00FF", "#FF69B4", "#FFB6C1", "#FFFFFF"] },
-      move: { direction: "none", enable: true, outModes: { default: "destroy" }, random: true, speed: 3, straight: false },
+      color: { value: ["#FF007F", "#BF00FF", "#FF69B4", "#FFB6C1", "#FFFFFF", "#ff6b6b"] },
+      move: { direction: "none", enable: true, outModes: { default: "destroy" }, random: true, speed: 4, straight: false },
       number: { density: { enable: false }, value: 0 },
       opacity: { value: { min: 0.3, max: 1 }, animation: { enable: true, speed: 1, startValue: "max", destroy: "min" } },
-      shape: { type: ["circle", "star"] },
-      size: { value: { min: 3, max: 8 } },
-      life: { duration: { sync: false, value: 1.5 }, count: 1 },
+      shape: { type: ["circle", "star", "heart"] },
+      size: { value: { min: 4, max: 10 } },
+      life: { duration: { sync: false, value: 2 }, count: 1 },
     },
     detectRetina: true,
   };
@@ -117,6 +139,271 @@ const ClickParticles = () => {
     );
   }
   return null;
+};
+
+// Animated Login Component with Boy-Girl Suitcase Animation
+const LoginPage = ({ onLogin }) => {
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [shake, setShake] = useState(false);
+  const [animationPhase, setAnimationPhase] = useState(0);
+  const [showLogin, setShowLogin] = useState(false);
+
+  useEffect(() => {
+    // Animation sequence
+    const timer1 = setTimeout(() => setAnimationPhase(1), 500);  // Boy appears
+    const timer2 = setTimeout(() => setAnimationPhase(2), 1500); // Girl appears
+    const timer3 = setTimeout(() => setAnimationPhase(3), 2500); // They meet
+    const timer4 = setTimeout(() => setAnimationPhase(4), 3500); // Heart appears
+    const timer5 = setTimeout(() => setShowLogin(true), 4500);   // Login opens
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearTimeout(timer4);
+      clearTimeout(timer5);
+    };
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password === "Harika@gandham") {
+      onLogin();
+    } else {
+      setError(true);
+      setShake(true);
+      setTimeout(() => setShake(false), 500);
+    }
+  };
+
+  return (
+    <div className="login-container overflow-hidden">
+      {/* Animated Boy and Girl */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {/* Boy silhouette coming from left */}
+        <motion.div
+          initial={{ x: -300, opacity: 0 }}
+          animate={{ 
+            x: animationPhase >= 1 ? (animationPhase >= 3 ? -60 : -150) : -300, 
+            opacity: animationPhase >= 1 ? 1 : 0 
+          }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute"
+        >
+          <div className="text-center">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/50 overflow-hidden">
+              <img src={IMAGES.umesh} alt="Umesh" className="w-full h-full object-cover" style={{ objectPosition: 'center top' }} />
+            </div>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: animationPhase >= 1 ? 1 : 0 }}
+              className="font-script text-lg text-blue-400 mt-2"
+            >
+              Umesh
+            </motion.p>
+          </div>
+        </motion.div>
+
+        {/* Girl silhouette coming from right */}
+        <motion.div
+          initial={{ x: 300, opacity: 0 }}
+          animate={{ 
+            x: animationPhase >= 2 ? (animationPhase >= 3 ? 60 : 150) : 300, 
+            opacity: animationPhase >= 2 ? 1 : 0 
+          }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute"
+        >
+          <div className="text-center">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg shadow-pink-500/50 overflow-hidden">
+              <img src={IMAGES.harika} alt="Harika" className="w-full h-full object-cover" style={{ objectPosition: 'center top' }} />
+            </div>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: animationPhase >= 2 ? 1 : 0 }}
+              className="font-script text-lg text-pink-400 mt-2"
+            >
+              Harika
+            </motion.p>
+          </div>
+        </motion.div>
+
+        {/* Heart appearing when they meet */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ 
+            scale: animationPhase >= 4 ? [0, 1.5, 1] : 0, 
+            opacity: animationPhase >= 4 ? 1 : 0,
+            y: animationPhase >= 4 ? -80 : 0
+          }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="absolute"
+        >
+          <Heart className="w-12 h-12 text-pink-500" fill="#FF007F" />
+        </motion.div>
+      </div>
+
+      {/* Suitcase / Gift Box Opening Animation */}
+      <AnimatePresence>
+        {showLogin && (
+          <motion.div
+            initial={{ scale: 0, rotateX: -90, opacity: 0 }}
+            animate={{ scale: 1, rotateX: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
+            className={`login-card ${shake ? 'shake' : ''} z-50`}
+          >
+            {/* Gift box lid effect */}
+            <motion.div
+              initial={{ rotateX: 0 }}
+              animate={{ rotateX: -180 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="absolute -top-4 left-0 right-0 h-8 bg-gradient-to-r from-pink-500 to-purple-500 rounded-t-xl origin-bottom"
+              style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}
+            />
+            
+            <div className="text-center mb-8">
+              <motion.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="inline-block mb-4"
+              >
+                <Heart className="w-16 h-16 text-pink-500 mx-auto" fill="#FF007F" />
+              </motion.div>
+              <h1 className="font-display text-3xl font-bold gradient-text mb-2">For My Love</h1>
+              <p className="text-gray-400 font-body">Unlock our love story 💕</p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="relative">
+                <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => { setPassword(e.target.value); setError(false); }}
+                  placeholder="Enter the key to my heart..."
+                  className="login-input pl-12"
+                  data-testid="login-password-input"
+                />
+              </div>
+              
+              {error && (
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-pink-500 text-sm text-center">
+                  Wrong password, try again my love!
+                </motion.p>
+              )}
+
+              <motion.button 
+                type="submit" 
+                className="login-button flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.02, boxShadow: "0 0 30px rgba(255, 0, 127, 0.5)" }}
+                whileTap={{ scale: 0.98 }}
+                data-testid="login-submit-button"
+              >
+                <Heart className="w-5 h-5" />
+                <span>Open My Heart</span>
+              </motion.button>
+            </form>
+
+            <p className="text-center text-gray-500 text-sm mt-6 font-script text-lg">With endless love, Umesh</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Loading text before login appears */}
+      {!showLogin && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute bottom-20 text-center"
+        >
+          <p className="font-body text-gray-400 text-lg">
+            {animationPhase < 3 ? "Two hearts finding each other..." : 
+             animationPhase < 4 ? "Coming together..." : 
+             "Opening our love story..."}
+          </p>
+        </motion.div>
+      )}
+    </div>
+  );
+};
+
+// Memorable Date Section - 29.02.2024
+const MemorableDateSection = () => {
+  return (
+    <section id="memorable-date" className="section-container py-20">
+      <div className="content-wrapper">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <motion.div
+            animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="mb-6"
+          >
+            <Calendar className="w-16 h-16 text-pink-500 mx-auto" />
+          </motion.div>
+
+          <h2 className="font-display text-4xl md:text-5xl font-bold gradient-text mb-4">
+            The Day That Changed Everything
+          </h2>
+
+          <motion.div
+            className="glass-card max-w-3xl mx-auto p-8 md:p-12 rounded-3xl mt-8"
+            whileHover={{ scale: 1.02 }}
+          >
+            <motion.p
+              className="font-display text-5xl md:text-7xl font-bold text-white mb-6"
+              animate={{ textShadow: ["0 0 20px #FF007F", "0 0 40px #FF007F", "0 0 20px #FF007F"] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              29.02.2024
+            </motion.p>
+
+            <div className="space-y-4 font-body text-gray-300 text-lg leading-relaxed">
+              <p>
+                <span className="text-pink-400 font-semibold">This is the most memorable day of my life.</span> 
+                The day when two souls connected, when our story began, when I found my forever.
+              </p>
+              
+              <p>
+                A leap year, a rare date, just like our rare and beautiful love. 
+                On this day, my heart found its home in you, Harika. 
+                Every moment since then has been a blessing.
+              </p>
+
+              <p className="text-pink-300 italic">
+                ఈ రోజు నా జీవితంలో అత్యంత గుర్తుండిపోయే రోజు. 
+                నీతో మొదలైన ప్రయాణం నా జీవితానికి అర్థం ఇచ్చింది.
+              </p>
+
+              <p>
+                February 29th comes once every four years, but my love for you grows every single second.
+                This date is written in the stars, destined to bring us together.
+              </p>
+            </div>
+
+            <div className="mt-8 flex justify-center gap-4">
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
+                >
+                  <Heart className="w-6 h-6 text-pink-500" fill="#FF007F" />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 // Countdown Timer Component
@@ -189,7 +476,7 @@ const CountdownTimer = () => {
   );
 };
 
-// Quiz Section Component
+// Quiz Section Component - Questions about Umesh for Harika
 const QuizSection = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -238,9 +525,9 @@ const QuizSection = () => {
         >
           <HelpCircle className="w-10 h-10 text-pink-500 mx-auto mb-4" />
           <h2 className="font-display text-4xl md:text-5xl font-bold gradient-text mb-4">
-            Love Quiz
+            How Well Do You Know Me?
           </h2>
-          <p className="font-body text-gray-400">Test how well you know our love story</p>
+          <p className="font-body text-gray-400">Harika, answer these questions about your Umesh 💕</p>
         </motion.div>
 
         <div className="max-w-2xl mx-auto">
@@ -291,10 +578,7 @@ const QuizSection = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="glass-card p-8 rounded-2xl text-center"
             >
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1, repeat: Infinity }}
-              >
+              <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 1, repeat: Infinity }}>
                 <Heart className="w-16 h-16 text-pink-500 mx-auto mb-4" fill="#FF007F" />
               </motion.div>
               <h3 className="font-display text-3xl gradient-text mb-4">Quiz Complete!</h3>
@@ -303,10 +587,12 @@ const QuizSection = () => {
               </p>
               <p className="font-body text-gray-400 mb-6">
                 {score === quizQuestions.length 
-                  ? "Perfect! You know our love story by heart! ❤️" 
-                  : score >= 3 
-                  ? "Amazing! Our love is truly special! 💕" 
-                  : "Every answer should be about loving you forever! 💖"}
+                  ? "Perfect! You know me so well, my love! ❤️" 
+                  : score >= 5 
+                  ? "Amazing! We are truly meant for each other! 💕" 
+                  : score >= 3
+                  ? "Good! Let's create more memories together! 💖"
+                  : "Don't worry, we have a lifetime to know each other! 💝"}
               </p>
               <motion.button
                 onClick={resetQuiz}
@@ -320,6 +606,77 @@ const QuizSection = () => {
             </motion.div>
           )}
         </div>
+      </div>
+    </section>
+  );
+};
+
+// Romantic Quotes Section - Before Playlist
+const RomanticQuotesSection = () => {
+  const [currentQuote, setCurrentQuote] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuote((prev) => (prev + 1) % romanticQuotes.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="section-container py-20">
+      <div className="content-wrapper">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Quote className="w-10 h-10 text-pink-500 mx-auto mb-4" />
+          <h2 className="font-display text-3xl md:text-4xl font-bold gradient-text mb-8">
+            Words From My Heart
+          </h2>
+
+          <div className="max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-3xl relative overflow-hidden">
+            <div className="absolute top-4 left-4 text-pink-500/20">
+              <Quote className="w-16 h-16" />
+            </div>
+            
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={currentQuote}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="font-script text-2xl md:text-3xl text-white leading-relaxed relative z-10"
+              >
+                "{romanticQuotes[currentQuote]}"
+              </motion.p>
+            </AnimatePresence>
+
+            <motion.p
+              className="font-body text-pink-400 mt-6"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              — Umesh, for his Harika
+            </motion.p>
+
+            {/* Quote navigation dots */}
+            <div className="flex justify-center gap-2 mt-6">
+              {romanticQuotes.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentQuote(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    currentQuote === index ? 'bg-pink-500 w-6' : 'bg-gray-600'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -373,7 +730,6 @@ const ProposalSection = () => {
               </motion.h3>
 
               <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
-                {/* YES Button */}
                 <motion.button
                   onClick={handleYes}
                   whileHover={{ 
@@ -404,7 +760,6 @@ const ProposalSection = () => {
                   or
                 </motion.span>
 
-                {/* NO Button */}
                 <motion.button
                   onClick={handleNo}
                   whileHover={{ 
@@ -423,9 +778,7 @@ const ProposalSection = () => {
                 </motion.button>
               </div>
 
-              <p className="font-body text-gray-500 text-sm mt-8">
-                (Hint: There's only one right answer 💕)
-              </p>
+              <p className="font-body text-gray-500 text-sm mt-8">(Hint: There's only one right answer 💕)</p>
             </>
           ) : (
             <motion.div
@@ -442,27 +795,12 @@ const ProposalSection = () => {
                   >
                     <Sparkles className="w-24 h-24 text-yellow-400 mx-auto" />
                   </motion.div>
-                  <h2 className="font-display text-4xl md:text-6xl font-bold gradient-text mb-6">
-                    She Said YES!
-                  </h2>
-                  <p className="font-body text-xl md:text-2xl text-gray-300 mb-4">
-                    This is the happiest moment of my life! 💍
-                  </p>
-                  <p className="font-script text-3xl text-pink-400">
-                    I love you forever, Harika!
-                  </p>
-                  <motion.div
-                    className="mt-8 flex justify-center gap-4"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1 }}
-                  >
-                    {[...Array(5)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        animate={{ y: [0, -20, 0], rotate: [0, 20, -20, 0] }}
-                        transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                      >
+                  <h2 className="font-display text-4xl md:text-6xl font-bold gradient-text mb-6">She Said YES!</h2>
+                  <p className="font-body text-xl md:text-2xl text-gray-300 mb-4">This is the happiest moment of my life! 💍</p>
+                  <p className="font-script text-3xl text-pink-400">I love you forever, Harika!</p>
+                  <motion.div className="mt-8 flex justify-center gap-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
+                    {[...Array(7)].map((_, i) => (
+                      <motion.div key={i} animate={{ y: [0, -20, 0], rotate: [0, 20, -20, 0] }} transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}>
                         <Heart className="w-8 h-8 text-pink-500" fill="#FF007F" />
                       </motion.div>
                     ))}
@@ -470,17 +808,9 @@ const ProposalSection = () => {
                 </>
               ) : (
                 <>
-                  <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
-                    Wait... Are you sure? 😢
-                  </h2>
-                  <p className="font-body text-xl text-gray-300 mb-8">
-                    Let me try again... I'll love you more each day!
-                  </p>
-                  <motion.button
-                    onClick={() => setAnswered(false)}
-                    whileHover={{ scale: 1.1 }}
-                    className="gradient-button px-8 py-4 rounded-full font-body font-semibold"
-                  >
+                  <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">Wait... Are you sure? 😢</h2>
+                  <p className="font-body text-xl text-gray-300 mb-8">Let me try again... I'll love you more each day!</p>
+                  <motion.button onClick={() => setAnswered(false)} whileHover={{ scale: 1.1 }} className="gradient-button px-8 py-4 rounded-full font-body font-semibold">
                     Give Me Another Chance ❤️
                   </motion.button>
                 </>
@@ -490,74 +820,6 @@ const ProposalSection = () => {
         </motion.div>
       </div>
     </section>
-  );
-};
-
-// Login Component
-const LoginPage = ({ onLogin }) => {
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
-  const [shake, setShake] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (password === "Harika@gandham") {
-      onLogin();
-    } else {
-      setError(true);
-      setShake(true);
-      setTimeout(() => setShake(false), 500);
-    }
-  };
-
-  return (
-    <div className="login-container">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className={`login-card ${shake ? 'shake' : ''}`}
-      >
-        <div className="text-center mb-8">
-          <motion.div
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="inline-block mb-4"
-          >
-            <Heart className="w-16 h-16 text-pink-500 mx-auto" fill="#FF007F" />
-          </motion.div>
-          <h1 className="font-display text-3xl font-bold gradient-text mb-2">For My Love</h1>
-          <p className="text-gray-400 font-body">Enter the key to my heart</p>
-        </div>
-
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="relative">
-            <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => { setPassword(e.target.value); setError(false); }}
-              placeholder="Enter password..."
-              className="login-input pl-12"
-              data-testid="login-password-input"
-            />
-          </div>
-          
-          {error && (
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-pink-500 text-sm text-center">
-              Wrong password, try again my love!
-            </motion.p>
-          )}
-
-          <button type="submit" className="login-button flex items-center justify-center gap-2" data-testid="login-submit-button">
-            <Heart className="w-5 h-5" />
-            <span>Enter My Heart</span>
-          </button>
-        </form>
-
-        <p className="text-center text-gray-500 text-sm mt-6 font-script text-lg">With love, Umesh</p>
-      </motion.div>
-    </div>
   );
 };
 
@@ -579,8 +841,9 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#hero" className="font-display text-xl gradient-text font-bold">U & H</a>
-        <div className="hidden md:flex items-center gap-6 font-body text-sm">
+        <div className="hidden md:flex items-center gap-5 font-body text-sm">
           <a href="#hero" className="nav-link">Home</a>
+          <a href="#memorable-date" className="nav-link">Our Day</a>
           <a href="#valentine-week" className="nav-link">Valentine's Week</a>
           <a href="#letter" className="nav-link">Letter</a>
           <a href="#quiz" className="nav-link">Quiz</a>
@@ -844,10 +1107,12 @@ const ValentineApp = () => {
             <main>
               <HeroSection />
               <CountdownTimer />
+              <MemorableDateSection />
               <ValentineWeekSection />
               <LoveLetterSection />
               <QuizSection />
               <GallerySection />
+              <RomanticQuotesSection />
               <MusicSection />
               <ProposalSection />
             </main>
