@@ -76,11 +76,11 @@ const valentineDays = [
 
 // Playlist Data - Umesh & Harika's Love Songs
 const playlist = [
-  { title: "Nuvvunte Na Jathaga", artist: "I Manoharudu", videoId: "hgQeo55s4So" },
-  { title: "Ye Maaya Chesave", artist: "Ye Maaya Chesave", videoId: "W8nny8Vm81s" },
-  { title: "Ayyayo", artist: "Adi", videoId: "0lU35XkicU0" },
-  { title: "Inkem Inkem", artist: "Geetha Govindam", videoId: "Q1iskzwrcFU" },
-  { title: "Samajavaragamana", artist: "Ala Vaikunthapurramuloo", videoId: "eCoyD4at3aU" }
+  { title: "Rooba Rooba", artist: "Orange", videoId: "hgQeo55s4So" },
+  { title: "Nuvvunte Chaley", artist: "Andhra King Taluka", videoId: "W8nny8Vm81s" },
+  { title: "Chinnadana Neekosam", artist: "Ishq", videoId: "0lU35XkicU0" },
+  { title: "Hridayam Lopala", artist: "Kingdom", videoId: "Q1iskzwrcFU" },
+  { title: "Kannullo Unnavu", artist: "Policeodu", videoId: "eCoyD4at3aU" }
 ];
 
 // Click Particles Component
