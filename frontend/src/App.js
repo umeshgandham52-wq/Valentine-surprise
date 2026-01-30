@@ -74,11 +74,13 @@ const valentineDays = [
   }
 ];
 
-// Playlist Data - Add your own YouTube video IDs here
-// Format: { title: "Song Name", artist: "Movie/Artist", videoId: "YOUTUBE_VIDEO_ID" }
+// Playlist Data - Umesh & Harika's Love Songs
 const playlist = [
-  { title: "Add Your Song", artist: "Add Artist Name", videoId: "YOUR_VIDEO_ID_1" },
-  { title: "Add Your Song", artist: "Add Artist Name", videoId: "YOUR_VIDEO_ID_2" }
+  { title: "Nuvvunte Na Jathaga", artist: "I Manoharudu", videoId: "hgQeo55s4So" },
+  { title: "Ye Maaya Chesave", artist: "Ye Maaya Chesave", videoId: "W8nny8Vm81s" },
+  { title: "Ayyayo", artist: "Adi", videoId: "0lU35XkicU0" },
+  { title: "Inkem Inkem", artist: "Geetha Govindam", videoId: "Q1iskzwrcFU" },
+  { title: "Samajavaragamana", artist: "Ala Vaikunthapurramuloo", videoId: "eCoyD4at3aU" }
 ];
 
 // Click Particles Component
