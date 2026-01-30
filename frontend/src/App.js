@@ -482,13 +482,20 @@ const LoginPage = ({ onLogin }) => {
 };
           <stop offset="100%" stopColor="#8B5CF6" />
         </linearGradient>
-      </defs>
-      {/* Head */}
-      <circle cx="50" cy="25" r="20" fill="url(#boyGradient)" />
+      <svg width="100" height="50" viewBox="0 0 100 50">
+  <defs>
+    <linearGradient id="boyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#ff8a00" />
+      <stop offset="100%" stopColor="#ff3d81" />
+    </linearGradient>
+  </defs>
+
+    <circle cx="50" cy="25" r="20" 
+    fill="url(#boyGradient)" />
       {/* Body */}
-      <path d="M50 45 L50 90 M50 55 L25 75 M50 55 L75 75 M50 90 L30 130 M50 90 L70 130" 
+    <path d="M50 45 L50 90 M50 55 L25 75 M50 55 L75 75 M50 90 L30 130 M50 90 L70 130" 
             stroke="url(#boyGradient)" strokeWidth="8" strokeLinecap="round" fill="none" />
-    </svg>
+   </svg>
   );
 
   // Girl Silhouette SVG
