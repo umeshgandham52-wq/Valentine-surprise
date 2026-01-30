@@ -46,7 +46,7 @@ const playlist = [
   { title: "Yemunnave Pilla", artist: "Nallamala", videoId: "LwHWYLUAehI" }
 ];
 
-// Quiz Questions - Harika answering about Umesh
+// Quiz Questions - Harika answering about Umesh (English Only)
 const quizQuestions = [
   {
     question: "What is Umesh's favorite color?",
@@ -79,9 +79,24 @@ const quizQuestions = [
     correct: 1
   },
   {
-    question: "What song reminds Umesh of you?",
-    options: ["Any sad song", "నువ్వుంటే చాలు", "Party songs", "Rock music"],
-    correct: 1
+    question: "What does Umesh think about when he misses you?",
+    options: ["Your laugh", "Your eyes", "Your voice", "Everything about you"],
+    correct: 3
+  },
+  {
+    question: "How long does Umesh want to be with you?",
+    options: ["One year", "Ten years", "Forever and always", "Until next Valentine"],
+    correct: 2
+  },
+  {
+    question: "What makes Umesh's day better?",
+    options: ["Money", "Food", "Seeing your smile", "Sleeping"],
+    correct: 2
+  },
+  {
+    question: "What would Umesh do for you?",
+    options: ["Nothing much", "Some things", "Anything", "Everything in the world"],
+    correct: 3
   }
 ];
 
