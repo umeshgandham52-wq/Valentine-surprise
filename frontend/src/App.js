@@ -18,7 +18,7 @@ const IMAGES = {
   hug_day: "https://images.unsplash.com/photo-1766041684389-96a9ea0d0b1b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHw0fHxjb3VwbGUlMjBob2xkaW5nJTIwaGFuZHMlMjBzdW5zZXQlMjBzaWxob3VldHRlfGVufDB8fHx8MTc2OTc3NTQyOXww&ixlib=rb-4.1.0&q=85",
   kiss_day: "https://images.unsplash.com/photo-1700688034169-9205cb85f1c4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwxfHxjb3VwbGUlMjBraXNzaW5nJTIwc2lsaG91ZXR0ZSUyMHN1bnNldHxlbnwwfHx8fDE3Njk3NzU0NTJ8MA&ixlib=rb-4.1.0&q=85",
   valentines_day: "https://images.unsplash.com/photo-1625178268165-6fd9e3e9ec84?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwzfHxjb3VwbGUlMjBob2xkaW5nJTIwaGFuZHMlMjBzdW5zZXQlMjBzaWxob3VldHRlfGVufDB8fHx8MTc2OTc3NTQyOXww&ixlib=rb-4.1.0&q=85",
-  umesh: "https://customer-assets.emergentagent.com/job_27e2edf0-a83b-43c4-9d0a-3e57c03d0fef/artifacts/7vyb7sez_umesh1.jpg",
+  umesh: "https://customer-assets.emergentagent.com/job_27e2edf0-a83b-43c4-9d0a-3e57c03d0fef/artifacts/lw14iwz3_Gemini_Generated_Image_cd75eocd75eocd75.png",
   harika: "https://customer-assets.emergentagent.com/job_27e2edf0-a83b-43c4-9d0a-3e57c03d0fef/artifacts/ceyh7rjs_WhatsApp%20Image%202026-01-30%20at%2011.21.26.jpeg"
 };
 
@@ -74,12 +74,11 @@ const valentineDays = [
   }
 ];
 
-// Playlist Data
+// Playlist Data - Add your own YouTube video IDs here
+// Format: { title: "Song Name", artist: "Movie/Artist", videoId: "YOUTUBE_VIDEO_ID" }
 const playlist = [
-  { title: "Nuvvunte Na Jathaga", artist: "I Manoharudu", videoId: "bKVd-xnqvog" },
-  { title: "Ayyayo", artist: "Adi", videoId: "GQ3hO5lXvOM" },
-  { title: "Nuvvunte Naa Jathaga", artist: "Varsham", videoId: "HBGZJhxr4X0" },
-  { title: "Ye Maaya Chesave", artist: "Ye Maaya Chesave", videoId: "nN8qNFPMfqU" }
+  { title: "Add Your Song", artist: "Add Artist Name", videoId: "YOUR_VIDEO_ID_1" },
+  { title: "Add Your Song", artist: "Add Artist Name", videoId: "YOUR_VIDEO_ID_2" }
 ];
 
 // Click Particles Component
