@@ -156,7 +156,7 @@ const ClickParticles = () => {
   return null;
 };
 
-// Animated Login Component with Boy-Girl Silhouette Suitcase Animation
+// Animated Login Component with Cute Boy-Girl Suitcase Animation
 const LoginPage = ({ onLogin }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -192,12 +192,294 @@ const LoginPage = ({ onLogin }) => {
     }
   };
 
-  // Boy Silhouette SVG
-  const BoySilhouette = () => (
-    <svg viewBox="0 0 100 150" className="w-20 h-28 md:w-24 md:h-32">
+  // Cute Small Boy SVG (Cartoon style)
+  const CuteBoy = () => (
+    <svg viewBox="0 0 60 80" className="w-12 h-16 md:w-16 md:h-20">
       <defs>
         <linearGradient id="boyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#8B5CF6" />
+        </linearGradient>
+      </defs>
+      {/* Big cute head */}
+      <circle cx="30" cy="22" r="18" fill="#FFE4C4" />
+      {/* Hair */}
+      <ellipse cx="30" cy="12" rx="16" ry="10" fill="#4A3728" />
+      <ellipse cx="20" cy="18" rx="4" ry="6" fill="#4A3728" />
+      {/* Eyes */}
+      <circle cx="24" cy="22" r="4" fill="white" />
+      <circle cx="36" cy="22" r="4" fill="white" />
+      <circle cx="25" cy="22" r="2" fill="#333" />
+      <circle cx="37" cy="22" r="2" fill="#333" />
+      {/* Cute blush */}
+      <ellipse cx="18" cy="28" rx="4" ry="2" fill="#FFB6C1" opacity="0.6" />
+      <ellipse cx="42" cy="28" rx="4" ry="2" fill="#FFB6C1" opacity="0.6" />
+      {/* Smile */}
+      <path d="M25 30 Q30 35 35 30" stroke="#333" strokeWidth="1.5" fill="none" />
+      {/* Body - cute shirt */}
+      <rect x="18" y="40" width="24" height="20" rx="5" fill="url(#boyGradient)" />
+      {/* Arms */}
+      <ellipse cx="14" cy="50" rx="5" ry="8" fill="url(#boyGradient)" />
+      <ellipse cx="46" cy="50" rx="5" ry="8" fill="url(#boyGradient)" />
+      {/* Hands */}
+      <circle cx="14" cy="56" r="4" fill="#FFE4C4" />
+      <circle cx="46" cy="56" r="4" fill="#FFE4C4" />
+      {/* Legs */}
+      <rect x="20" y="58" width="8" height="15" rx="3" fill="#1E40AF" />
+      <rect x="32" y="58" width="8" height="15" rx="3" fill="#1E40AF" />
+      {/* Shoes */}
+      <ellipse cx="24" cy="75" rx="6" ry="4" fill="#333" />
+      <ellipse cx="36" cy="75" rx="6" ry="4" fill="#333" />
+    </svg>
+  );
+
+  // Cute Small Girl SVG (Cartoon style)
+  const CuteGirl = () => (
+    <svg viewBox="0 0 60 80" className="w-12 h-16 md:w-16 md:h-20">
+      <defs>
+        <linearGradient id="girlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#EC4899" />
+          <stop offset="100%" stopColor="#F472B6" />
+        </linearGradient>
+        <linearGradient id="girlDress" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#EC4899" />
+          <stop offset="100%" stopColor="#BE185D" />
+        </linearGradient>
+      </defs>
+      {/* Big cute head */}
+      <circle cx="30" cy="22" r="18" fill="#FFE4C4" />
+      {/* Long hair */}
+      <ellipse cx="30" cy="18" rx="20" ry="14" fill="#2D1B0E" />
+      <ellipse cx="12" cy="35" rx="6" ry="15" fill="#2D1B0E" />
+      <ellipse cx="48" cy="35" rx="6" ry="15" fill="#2D1B0E" />
+      {/* Hair bow */}
+      <ellipse cx="42" cy="10" rx="6" ry="4" fill="#EC4899" />
+      <ellipse cx="48" cy="10" rx="6" ry="4" fill="#EC4899" />
+      <circle cx="45" cy="10" r="3" fill="#BE185D" />
+      {/* Eyes */}
+      <circle cx="24" cy="22" r="4" fill="white" />
+      <circle cx="36" cy="22" r="4" fill="white" />
+      <circle cx="25" cy="22" r="2" fill="#333" />
+      <circle cx="37" cy="22" r="2" fill="#333" />
+      {/* Eyelashes */}
+      <path d="M20 19 L22 21 M21 18 L23 20" stroke="#333" strokeWidth="1" />
+      <path d="M40 19 L38 21 M39 18 L37 20" stroke="#333" strokeWidth="1" />
+      {/* Cute blush */}
+      <ellipse cx="18" cy="28" rx="4" ry="2" fill="#FF69B4" opacity="0.7" />
+      <ellipse cx="42" cy="28" rx="4" ry="2" fill="#FF69B4" opacity="0.7" />
+      {/* Smile */}
+      <path d="M25 30 Q30 35 35 30" stroke="#333" strokeWidth="1.5" fill="none" />
+      {/* Dress */}
+      <path d="M18 40 L15 70 L45 70 L42 40 Z" fill="url(#girlDress)" />
+      <ellipse cx="30" cy="42" rx="12" ry="5" fill="url(#girlGradient)" />
+      {/* Arms */}
+      <ellipse cx="12" cy="48" rx="4" ry="7" fill="#FFE4C4" />
+      <ellipse cx="48" cy="48" rx="4" ry="7" fill="#FFE4C4" />
+      {/* Hands */}
+      <circle cx="12" cy="54" r="4" fill="#FFE4C4" />
+      <circle cx="48" cy="54" r="4" fill="#FFE4C4" />
+      {/* Legs */}
+      <rect x="22" y="68" width="5" height="8" rx="2" fill="#FFE4C4" />
+      <rect x="33" y="68" width="5" height="8" rx="2" fill="#FFE4C4" />
+      {/* Shoes */}
+      <ellipse cx="24" cy="77" rx="5" ry="3" fill="#EC4899" />
+      <ellipse cx="36" cy="77" rx="5" ry="3" fill="#EC4899" />
+    </svg>
+  );
+
+  // Cute Suitcase/Gift Box SVG
+  const CuteSuitcase = ({ isOpen }) => (
+    <svg viewBox="0 0 80 60" className="w-16 h-12 md:w-20 md:h-14">
+      <defs>
+        <linearGradient id="suitcaseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FF007F" />
+          <stop offset="100%" stopColor="#BF00FF" />
+        </linearGradient>
+      </defs>
+      {/* Handle */}
+      <path d="M30 8 L30 3 Q40 0 50 3 L50 8" stroke="#FFD700" strokeWidth="3" fill="none" />
+      {/* Base */}
+      <rect x="5" y="20" width="70" height="35" rx="5" fill="url(#suitcaseGrad)" />
+      {/* Lid */}
+      <motion.rect 
+        x="5" y="8" width="70" height="15" rx="5" 
+        fill="url(#suitcaseGrad)"
+        style={{ 
+          transformOrigin: '40px 23px',
+          transform: isOpen ? 'rotateX(-100deg)' : 'rotateX(0deg)'
+        }}
+      />
+      {/* Lock */}
+      <circle cx="40" cy="23" r="5" fill="#FFD700" />
+      <rect x="38" cy="28" width="4" height="6" fill="#FFD700" />
+      {/* Heart inside */}
+      {isOpen && (
+        <path d="M40 32 C36 28 28 28 28 36 C28 44 40 52 40 52 C40 52 52 44 52 36 C52 28 44 28 40 32" 
+              fill="#FF007F" opacity="0.8" />
+      )}
+    </svg>
+  );
+
+  return (
+    <div className="login-container overflow-hidden">
+      {/* Animated Cute Boy and Girl */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ marginTop: '-50px' }}>
+        
+        {/* Cute Boy coming from left edge */}
+        <motion.div
+          initial={{ x: '-50vw', opacity: 0 }}
+          animate={{ 
+            x: animationPhase >= 1 ? (animationPhase >= 3 ? -50 : -120) : '-50vw', 
+            opacity: animationPhase >= 1 ? 1 : 0 
+          }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute"
+        >
+          <div className="text-center">
+            <motion.div
+              animate={animationPhase >= 1 ? { y: [0, -8, 0], rotate: [0, 3, -3, 0] } : {}}
+              transition={{ duration: 0.6, repeat: Infinity }}
+              style={{ filter: 'drop-shadow(0 5px 15px rgba(59, 130, 246, 0.5))' }}
+            >
+              <CuteBoy />
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Cute Girl coming from right edge */}
+        <motion.div
+          initial={{ x: '50vw', opacity: 0 }}
+          animate={{ 
+            x: animationPhase >= 2 ? (animationPhase >= 3 ? 50 : 120) : '50vw', 
+            opacity: animationPhase >= 2 ? 1 : 0 
+          }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute"
+        >
+          <div className="text-center">
+            <motion.div
+              animate={animationPhase >= 2 ? { y: [0, -8, 0], rotate: [0, -3, 3, 0] } : {}}
+              transition={{ duration: 0.6, repeat: Infinity, delay: 0.3 }}
+              style={{ filter: 'drop-shadow(0 5px 15px rgba(236, 72, 153, 0.5))' }}
+            >
+              <CuteGirl />
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Hearts appearing when they meet */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0, y: 0 }}
+          animate={{ 
+            scale: animationPhase >= 4 ? 1 : 0, 
+            opacity: animationPhase >= 4 ? 1 : 0,
+            y: animationPhase >= 4 ? -70 : 0
+          }}
+          transition={{ duration: 0.5 }}
+          className="absolute flex gap-2"
+        >
+          {[...Array(3)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{ y: [0, -10, 0], scale: [1, 1.2, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.2 }}
+            >
+              <Heart className="w-6 h-6 text-pink-500" fill="#FF007F" style={{ filter: 'drop-shadow(0 0 10px rgba(255, 0, 127, 0.8))' }} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Cute Suitcase in the middle */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0, y: 30 }}
+          animate={{ 
+            scale: animationPhase >= 4 ? 1 : 0, 
+            opacity: animationPhase >= 4 ? 1 : 0,
+            y: animationPhase >= 4 ? 50 : 30
+          }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="absolute"
+        >
+          <CuteSuitcase isOpen={showLogin} />
+        </motion.div>
+      </div>
+
+      {/* Login Form - Opens from Suitcase */}
+      <AnimatePresence>
+        {showLogin && (
+          <motion.div
+            initial={{ scale: 0, y: 100, opacity: 0 }}
+            animate={{ scale: 1, y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", type: "spring", bounce: 0.3 }}
+            className={`login-card ${shake ? 'shake' : ''} z-50`}
+          >
+            <div className="text-center mb-8">
+              <motion.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="inline-block mb-4"
+              >
+                <Heart className="w-16 h-16 text-pink-500 mx-auto" fill="#FF007F" />
+              </motion.div>
+              <h1 className="font-display text-3xl font-bold gradient-text mb-2">For My Love</h1>
+              <p className="text-gray-400 font-body">Unlock our love story 💕</p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="relative">
+                <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => { setPassword(e.target.value); setError(false); }}
+                  placeholder="Enter the key to my heart..."
+                  className="login-input pl-12"
+                  data-testid="login-password-input"
+                />
+              </div>
+              
+              {error && (
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-pink-500 text-sm text-center">
+                  Wrong password, try again my love!
+                </motion.p>
+              )}
+
+              <motion.button 
+                type="submit" 
+                className="login-button flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.02, boxShadow: "0 0 30px rgba(255, 0, 127, 0.5)" }}
+                whileTap={{ scale: 0.98 }}
+                data-testid="login-submit-button"
+              >
+                <Heart className="w-5 h-5" />
+                <span>Open My Heart</span>
+              </motion.button>
+            </form>
+
+            <p className="text-center text-gray-500 text-sm mt-6 font-script text-lg">With endless love, Umesh</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Loading text before login appears */}
+      {!showLogin && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute bottom-20 left-0 right-0 text-center"
+        >
+          <p className="font-body text-gray-400 text-lg">
+            {animationPhase < 2 ? "Two hearts..." : 
+             animationPhase < 3 ? "Finding each other..." : 
+             animationPhase < 4 ? "Coming together..." : 
+             "Opening the gift of love..."}
+          </p>
+        </motion.div>
+      )}
+    </div>
+  );
+};
           <stop offset="100%" stopColor="#8B5CF6" />
         </linearGradient>
       </defs>
