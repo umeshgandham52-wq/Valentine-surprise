@@ -156,7 +156,7 @@ const ClickParticles = () => {
   return null;
 };
 
-// Animated Login Component with Boy-Girl Suitcase Animation
+// Animated Login Component with Boy-Girl Silhouette Suitcase Animation
 const LoginPage = ({ onLogin }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -169,7 +169,7 @@ const LoginPage = ({ onLogin }) => {
     const timer1 = setTimeout(() => setAnimationPhase(1), 500);  // Boy appears
     const timer2 = setTimeout(() => setAnimationPhase(2), 1500); // Girl appears
     const timer3 = setTimeout(() => setAnimationPhase(3), 2500); // They meet
-    const timer4 = setTimeout(() => setAnimationPhase(4), 3500); // Heart appears
+    const timer4 = setTimeout(() => setAnimationPhase(4), 3500); // Heart & suitcase
     const timer5 = setTimeout(() => setShowLogin(true), 4500);   // Login opens
 
     return () => {
@@ -192,91 +192,183 @@ const LoginPage = ({ onLogin }) => {
     }
   };
 
+  // Boy Silhouette SVG
+  const BoySilhouette = () => (
+    <svg viewBox="0 0 100 150" className="w-20 h-28 md:w-24 md:h-32">
+      <defs>
+        <linearGradient id="boyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#8B5CF6" />
+        </linearGradient>
+      </defs>
+      {/* Head */}
+      <circle cx="50" cy="25" r="20" fill="url(#boyGradient)" />
+      {/* Body */}
+      <path d="M50 45 L50 90 M50 55 L25 75 M50 55 L75 75 M50 90 L30 130 M50 90 L70 130" 
+            stroke="url(#boyGradient)" strokeWidth="8" strokeLinecap="round" fill="none" />
+    </svg>
+  );
+
+  // Girl Silhouette SVG
+  const GirlSilhouette = () => (
+    <svg viewBox="0 0 100 150" className="w-20 h-28 md:w-24 md:h-32">
+      <defs>
+        <linearGradient id="girlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#EC4899" />
+          <stop offset="100%" stopColor="#8B5CF6" />
+        </linearGradient>
+      </defs>
+      {/* Head */}
+      <circle cx="50" cy="25" r="20" fill="url(#girlGradient)" />
+      {/* Hair */}
+      <path d="M30 25 Q30 5 50 5 Q70 5 70 25 Q75 35 70 45 M30 25 Q25 35 30 45" 
+            stroke="url(#girlGradient)" strokeWidth="4" fill="none" />
+      {/* Body - dress shape */}
+      <path d="M50 45 L50 60 M40 60 Q50 55 60 60 L70 120 Q50 125 30 120 L40 60 M50 55 L30 70 M50 55 L70 70" 
+            stroke="url(#girlGradient)" strokeWidth="6" strokeLinecap="round" fill="url(#girlGradient)" fillOpacity="0.3" />
+      {/* Legs */}
+      <path d="M40 120 L35 145 M60 120 L65 145" stroke="url(#girlGradient)" strokeWidth="6" strokeLinecap="round" />
+    </svg>
+  );
+
+  // Suitcase SVG
+  const Suitcase = ({ isOpen }) => (
+    <svg viewBox="0 0 120 100" className="w-32 h-24 md:w-40 md:h-28">
+      <defs>
+        <linearGradient id="suitcaseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FF007F" />
+          <stop offset="100%" stopColor="#BF00FF" />
+        </linearGradient>
+      </defs>
+      {/* Handle */}
+      <path d="M45 15 L45 5 Q60 0 75 5 L75 15" stroke="url(#suitcaseGradient)" strokeWidth="4" fill="none" />
+      {/* Lid */}
+      <motion.rect 
+        x="10" y="15" width="100" height="25" rx="5" 
+        fill="url(#suitcaseGradient)"
+        animate={{ rotateX: isOpen ? -120 : 0 }}
+        style={{ transformOrigin: '60px 40px' }}
+      />
+      {/* Base */}
+      <rect x="10" y="40" width="100" height="50" rx="5" fill="url(#suitcaseGradient)" />
+      {/* Lock */}
+      <circle cx="60" cy="40" r="6" fill="#FFD700" />
+      {/* Heart inside when open */}
+      {isOpen && (
+        <motion.g initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.3 }}>
+          <path d="M60 55 C55 50 45 50 45 60 C45 70 60 80 60 80 C60 80 75 70 75 60 C75 50 65 50 60 55" 
+                fill="#FF007F" />
+        </motion.g>
+      )}
+    </svg>
+  );
+
   return (
     <div className="login-container overflow-hidden">
-      {/* Animated Boy and Girl */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      {/* Animated Boy and Girl Silhouettes */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ marginTop: '-100px' }}>
+        
         {/* Boy silhouette coming from left */}
         <motion.div
-          initial={{ x: -300, opacity: 0 }}
+          initial={{ x: -400, opacity: 0 }}
           animate={{ 
-            x: animationPhase >= 1 ? (animationPhase >= 3 ? -60 : -150) : -300, 
+            x: animationPhase >= 1 ? (animationPhase >= 3 ? -80 : -180) : -400, 
             opacity: animationPhase >= 1 ? 1 : 0 
           }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
           className="absolute"
         >
           <div className="text-center">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/50 overflow-hidden">
-              <img src={IMAGES.umesh} alt="Umesh" className="w-full h-full object-cover" style={{ objectPosition: 'center top' }} />
-            </div>
+            <motion.div
+              animate={animationPhase >= 1 ? { y: [0, -5, 0] } : {}}
+              transition={{ duration: 0.8, repeat: Infinity }}
+              className="filter drop-shadow-lg"
+              style={{ filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))' }}
+            >
+              <BoySilhouette />
+            </motion.div>
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: animationPhase >= 1 ? 1 : 0 }}
-              className="font-script text-lg text-blue-400 mt-2"
+              className="font-script text-xl text-blue-400 mt-2"
             >
-              Umesh
+              He
             </motion.p>
           </div>
         </motion.div>
 
         {/* Girl silhouette coming from right */}
         <motion.div
-          initial={{ x: 300, opacity: 0 }}
+          initial={{ x: 400, opacity: 0 }}
           animate={{ 
-            x: animationPhase >= 2 ? (animationPhase >= 3 ? 60 : 150) : 300, 
+            x: animationPhase >= 2 ? (animationPhase >= 3 ? 80 : 180) : 400, 
             opacity: animationPhase >= 2 ? 1 : 0 
           }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
           className="absolute"
         >
           <div className="text-center">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg shadow-pink-500/50 overflow-hidden">
-              <img src={IMAGES.harika} alt="Harika" className="w-full h-full object-cover" style={{ objectPosition: 'center top' }} />
-            </div>
+            <motion.div
+              animate={animationPhase >= 2 ? { y: [0, -5, 0] } : {}}
+              transition={{ duration: 0.8, repeat: Infinity, delay: 0.4 }}
+              className="filter drop-shadow-lg"
+              style={{ filter: 'drop-shadow(0 0 20px rgba(236, 72, 153, 0.5))' }}
+            >
+              <GirlSilhouette />
+            </motion.div>
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: animationPhase >= 2 ? 1 : 0 }}
-              className="font-script text-lg text-pink-400 mt-2"
+              className="font-script text-xl text-pink-400 mt-2"
             >
-              Harika
+              She
             </motion.p>
           </div>
         </motion.div>
 
         {/* Heart appearing when they meet */}
         <motion.div
-          initial={{ scale: 0, opacity: 0 }}
+          initial={{ scale: 0, opacity: 0, y: 0 }}
           animate={{ 
             scale: animationPhase >= 4 ? [0, 1.5, 1] : 0, 
             opacity: animationPhase >= 4 ? 1 : 0,
-            y: animationPhase >= 4 ? -80 : 0
+            y: animationPhase >= 4 ? -50 : 0
           }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="absolute"
         >
-          <Heart className="w-12 h-12 text-pink-500" fill="#FF007F" />
+          <motion.div
+            animate={animationPhase >= 4 ? { scale: [1, 1.2, 1] } : {}}
+            transition={{ duration: 1, repeat: Infinity }}
+          >
+            <Heart className="w-16 h-16 text-pink-500" fill="#FF007F" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 0, 127, 0.8))' }} />
+          </motion.div>
+        </motion.div>
+
+        {/* Suitcase in the middle */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0, y: 50 }}
+          animate={{ 
+            scale: animationPhase >= 4 ? 1 : 0, 
+            opacity: animationPhase >= 4 ? 1 : 0,
+            y: animationPhase >= 4 ? 80 : 50
+          }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="absolute"
+        >
+          <Suitcase isOpen={showLogin} />
         </motion.div>
       </div>
 
-      {/* Suitcase / Gift Box Opening Animation */}
+      {/* Login Form - Opens from Suitcase */}
       <AnimatePresence>
         {showLogin && (
           <motion.div
-            initial={{ scale: 0, rotateX: -90, opacity: 0 }}
-            animate={{ scale: 1, rotateX: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", type: "spring" }}
+            initial={{ scale: 0, y: 100, opacity: 0 }}
+            animate={{ scale: 1, y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", type: "spring", bounce: 0.3 }}
             className={`login-card ${shake ? 'shake' : ''} z-50`}
           >
-            {/* Gift box lid effect */}
-            <motion.div
-              initial={{ rotateX: 0 }}
-              animate={{ rotateX: -180 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="absolute -top-4 left-0 right-0 h-8 bg-gradient-to-r from-pink-500 to-purple-500 rounded-t-xl origin-bottom"
-              style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}
-            />
-            
             <div className="text-center mb-8">
               <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
@@ -331,12 +423,13 @@ const LoginPage = ({ onLogin }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="absolute bottom-20 text-center"
+          className="absolute bottom-20 left-0 right-0 text-center"
         >
           <p className="font-body text-gray-400 text-lg">
-            {animationPhase < 3 ? "Two hearts finding each other..." : 
+            {animationPhase < 2 ? "Two hearts..." : 
+             animationPhase < 3 ? "Finding each other..." : 
              animationPhase < 4 ? "Coming together..." : 
-             "Opening our love story..."}
+             "Opening the gift of love..."}
           </p>
         </motion.div>
       )}
