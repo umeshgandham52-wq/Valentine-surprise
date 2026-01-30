@@ -4,22 +4,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import ReactPlayer from "react-player";
 import { Heart, Lock, Music, Play, Pause, ChevronDown, Calendar, Gift, Star, Sparkles } from "lucide-react";
 
-// Images from design guidelines
+// Images
 const IMAGES = {
-  background: "https://images.unsplash.com/photo-1761063198805-83ad61ebc827?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjBmbHVpZCUyMGdyYWRpZW50JTIwYmFja2dyb3VuZCUyMHBpbmslMjBwdXJwbGV8ZW58MHx8fHwxNzY5Nzc1NDMxfDA&ixlib=rb-4.1.0&q=85",
-  rose_day: "https://images.unsplash.com/photo-1678700914037-24646a7f6025?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwzfHxyZWQlMjByb3NlJTIwZmxvd2VyJTIwZGFyayUyMG1vb2R5fGVufDB8fHx8MTc2OTc3NTQyN3ww&ixlib=rb-4.1.0&q=85",
-  propose_day: "https://images.pexels.com/photos/19525067/pexels-photo-19525067.jpeg",
-  chocolate_day: "https://images.unsplash.com/photo-1716535232783-38a9e49eeffa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwxfHxkYXJrJTIwY2hvY29sYXRlJTIwdHJ1ZmZsZXMlMjBsdXh1cnl8ZW58MHx8fHwxNzY5Nzc1NDQ2fDA&ixlib=rb-4.1.0&q=85",
-  teddy_day: "https://images.unsplash.com/photo-1654063655174-71e1e90bbdac?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwxfHxjdXRlJTIwdGVkZHklMjBiZWFyJTIwd2l0aCUyMGhlYXJ0fGVufDB8fHx8MTc2OTc3NTQ0OHww&ixlib=rb-4.1.0&q=85",
-  promise_day: "https://images.unsplash.com/photo-1767986552377-efeca5e44e58?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwxfHxwaW5reSUyMHByb21pc2UlMjBoYW5kcyUyMGNsb3NlJTIwdXB8ZW58MHx8fHwxNzY5Nzc1NDUwfDA&ixlib=rb-4.1.0&q=85",
-  hug_day: "https://images.unsplash.com/photo-1766041684389-96a9ea0d0b1b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHw0fHxjb3VwbGUlMjBob2xkaW5nJTIwaGFuZHMlMjBzdW5zZXQlMjBzaWxob3VldHRlfGVufDB8fHx8MTc2OTc3NTQyOXww&ixlib=rb-4.1.0&q=85",
-  kiss_day: "https://images.unsplash.com/photo-1700688034169-9205cb85f1c4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwxfHxjb3VwbGUlMjBraXNzaW5nJTIwc2lsaG91ZXR0ZSUyMHN1bnNldHxlbnwwfHx8fDE3Njk3NzU0NTJ8MA&ixlib=rb-4.1.0&q=85",
-  valentines_day: "https://images.unsplash.com/photo-1625178268165-6fd9e3e9ec84?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwzfHxjb3VwbGUlMjBob2xkaW5nJTIwaGFuZHMlMjBzdW5zZXQlMjBzaWxob3VldHRlfGVufDB8fHx8MTc2OTc3NTQyOXww&ixlib=rb-4.1.0&q=85",
   umesh: "https://customer-assets.emergentagent.com/job_27e2edf0-a83b-43c4-9d0a-3e57c03d0fef/artifacts/lw14iwz3_Gemini_Generated_Image_cd75eocd75eocd75.png",
-  harika: "https://customer-assets.emergentagent.com/job_27e2edf0-a83b-43c4-9d0a-3e57c03d0fef/artifacts/ceyh7rjs_WhatsApp%20Image%202026-01-30%20at%2011.21.26.jpeg"
+  harika: "https://customer-assets.emergentagent.com/job_27e2edf0-a83b-43c4-9d0a-3e57c03d0fef/artifacts/ceyh7rjs_WhatsApp%20Image%202026-01-30%20at%2011.21.26.jpeg",
+  rose_day: "https://images.unsplash.com/photo-1518882605630-8eb7c9641e00?w=500",
+  propose_day: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500",
+  chocolate_day: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=500",
+  teddy_day: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500",
+  promise_day: "https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=500",
+  hug_day: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500",
+  kiss_day: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500",
+  valentines_day: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500"
 };
 
 // Valentine's Week Days Data
@@ -28,53 +26,53 @@ const valentineDays = [
     name: "Rose Day",
     date: "February 7",
     image: IMAGES.rose_day,
-    description: "A single rose speaks louder than a thousand words. Harika, you are the most beautiful rose in the garden of my life."
+    description: "A single rose speaks louder than a thousand words. Harika, you are the most beautiful rose in the garden of my life. Every petal reminds me of your delicate beauty."
   },
   {
     name: "Propose Day",
     date: "February 8",
     image: IMAGES.propose_day,
-    description: "Every day I wake up choosing you. Will you always be mine? I promise to love you with every beat of my heart."
+    description: "Every day I wake up choosing you. Will you always be mine? I promise to love you with every beat of my heart, today and forever."
   },
   {
     name: "Chocolate Day",
     date: "February 9",
     image: IMAGES.chocolate_day,
-    description: "Like chocolate sweetens life, your smile sweetens my every moment. You make my world sweeter, Harika."
+    description: "Like chocolate sweetens life, your smile sweetens my every moment. You make my world sweeter than the sweetest chocolate, Harika."
   },
   {
     name: "Teddy Day",
     date: "February 10",
     image: IMAGES.teddy_day,
-    description: "A teddy to hold when I'm not there. But nothing compares to holding you in my arms, my love."
+    description: "A teddy to hold when I'm not there. But nothing compares to holding you in my arms, my love. You are my comfort and my peace."
   },
   {
     name: "Promise Day",
     date: "February 11",
     image: IMAGES.promise_day,
-    description: "I promise to stand by you through every storm, to hold your hand through every fear, and to love you forever."
+    description: "I promise to stand by you through every storm, to hold your hand through every fear, and to love you unconditionally forever and ever."
   },
   {
     name: "Hug Day",
     date: "February 12",
     image: IMAGES.hug_day,
-    description: "In your arms, I find my peace. Every hug from you heals my soul and makes me feel complete."
+    description: "In your arms, I find my peace. Every hug from you heals my soul and makes me feel complete. I miss your warm embrace so much."
   },
   {
     name: "Kiss Day",
     date: "February 13",
     image: IMAGES.kiss_day,
-    description: "A kiss is a secret told to the mouth instead of the ear. Every kiss with you tells the story of our love."
+    description: "A kiss is a secret told to the mouth instead of the ear. Every kiss with you tells the story of our eternal love."
   },
   {
     name: "Valentine's Day",
     date: "February 14",
     image: IMAGES.valentines_day,
-    description: "You are my Valentine, my everything. Today and always, my heart belongs only to you, Harika."
+    description: "You are my Valentine, my everything. Today and always, my heart belongs only to you, Harika. Forever and always."
   }
 ];
 
-// Playlist Data - Umesh & Harika's Love Songs
+// Playlist Data - YouTube Video IDs
 const playlist = [
   { title: "Rooba Rooba", artist: "Orange", videoId: "hgQeo55s4So" },
   { title: "Nuvvunte Chaley", artist: "Andhra King Taluka", videoId: "W8nny8Vm81s" },
@@ -95,68 +93,37 @@ const ClickParticles = () => {
     });
   }, []);
 
-  const particlesLoaded = useCallback(async (container) => {
-    // Particles loaded
-  }, []);
+  const particlesLoaded = useCallback(async (container) => {}, []);
 
   const options = {
     fullScreen: false,
     fpsLimit: 60,
     interactivity: {
       events: {
-        onClick: {
-          enable: true,
-          mode: "push",
-        },
+        onClick: { enable: true, mode: "push" },
       },
       modes: {
-        push: {
-          quantity: 8,
-        },
+        push: { quantity: 8 },
       },
     },
     particles: {
-      color: {
-        value: ["#FF007F", "#BF00FF", "#FF69B4", "#FFB6C1", "#FFFFFF"],
-      },
+      color: { value: ["#FF007F", "#BF00FF", "#FF69B4", "#FFB6C1", "#FFFFFF"] },
       move: {
         direction: "none",
         enable: true,
-        outModes: {
-          default: "destroy",
-        },
+        outModes: { default: "destroy" },
         random: true,
         speed: 3,
         straight: false,
       },
-      number: {
-        density: {
-          enable: false,
-        },
-        value: 0,
-      },
+      number: { density: { enable: false }, value: 0 },
       opacity: {
         value: { min: 0.3, max: 1 },
-        animation: {
-          enable: true,
-          speed: 1,
-          startValue: "max",
-          destroy: "min",
-        },
+        animation: { enable: true, speed: 1, startValue: "max", destroy: "min" },
       },
-      shape: {
-        type: ["circle", "star"],
-      },
-      size: {
-        value: { min: 3, max: 8 },
-      },
-      life: {
-        duration: {
-          sync: false,
-          value: 1.5,
-        },
-        count: 1,
-      },
+      shape: { type: ["circle", "star"] },
+      size: { value: { min: 3, max: 8 } },
+      life: { duration: { sync: false, value: 1.5 }, count: 1 },
     },
     detectRetina: true,
   };
@@ -323,32 +290,30 @@ const HeroSection = () => {
             Every moment without you feels incomplete. This is my heart, open for you to see.
           </p>
 
-          <div className="flex items-center justify-center gap-4 mb-12 flex-wrap">
-            <div className="glass-card rounded-2xl p-6 text-center">
-              <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-3 border-3 border-pink-500 shadow-lg shadow-pink-500/30">
-                <img
-                  src={IMAGES.umesh}
-                  alt="Umesh"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-              <p className="font-script text-xl text-pink-400">Umesh</p>
+          <div className="flex items-center justify-center gap-6 md:gap-10 mb-12 flex-wrap">
+            <div className="glass-card rounded-2xl p-4 md:p-6 text-center">
+              <img
+                src={IMAGES.umesh}
+                alt="Umesh"
+                className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mx-auto mb-3 border-4 border-pink-500 shadow-lg shadow-pink-500/50"
+                style={{ objectPosition: 'center top' }}
+              />
+              <p className="font-script text-2xl text-pink-400">Umesh</p>
             </div>
             <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
+              animate={{ scale: [1, 1.3, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <Heart className="w-10 h-10 text-pink-500" fill="#FF007F" />
+              <Heart className="w-12 h-12 md:w-16 md:h-16 text-pink-500" fill="#FF007F" />
             </motion.div>
-            <div className="glass-card rounded-2xl p-6 text-center">
-              <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-3 border-3 border-purple-500 shadow-lg shadow-purple-500/30">
-                <img
-                  src={IMAGES.harika}
-                  alt="Harika"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-              <p className="font-script text-xl text-purple-400">Harika</p>
+            <div className="glass-card rounded-2xl p-4 md:p-6 text-center">
+              <img
+                src={IMAGES.harika}
+                alt="Harika"
+                className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mx-auto mb-3 border-4 border-purple-500 shadow-lg shadow-purple-500/50"
+                style={{ objectPosition: 'center top' }}
+              />
+              <p className="font-script text-2xl text-purple-400">Harika</p>
             </div>
           </div>
 
@@ -403,6 +368,9 @@ const ValentineWeekSection = () => {
                 src={day.image}
                 alt={day.name}
                 className="day-card-image"
+                onError={(e) => {
+                  e.target.src = `https://images.unsplash.com/photo-1518882605630-8eb7c9641e00?w=500`;
+                }}
               />
               <div className="day-card-content">
                 <span className="text-pink-500 text-sm font-body">{day.date}</span>
@@ -419,7 +387,7 @@ const ValentineWeekSection = () => {
   );
 };
 
-// Love Letter Section
+// Love Letter Section - EXPANDED
 const LoveLetterSection = () => {
   return (
     <section id="letter" className="section-container">
@@ -439,50 +407,75 @@ const LoveLetterSection = () => {
 
           <div className="letter-container" data-testid="love-letter-container">
             <div className="font-body text-gray-200 leading-loose space-y-6 relative z-10">
-              <p className="font-display text-2xl text-pink-400">My Dearest Harika,</p>
+              <p className="font-display text-2xl md:text-3xl text-pink-400">My Dearest Harika,</p>
               
               <p>
                 I'm writing this letter with a heart full of love and eyes full of longing. 
                 Every day without you feels like a year, and every night I dream of your beautiful smile.
+                You are the first thought in my morning and the last whisper in my prayers at night.
               </p>
 
               <p>
                 I know I've made mistakes. I know there have been times when I wasn't the person 
                 you deserved. But please know that every moment of silence, every moment of pain, 
-                has made me realize how much you truly mean to me.
+                has made me realize how much you truly mean to me. You are not just my love, 
+                you are my life, my soul, my everything.
               </p>
 
-              <p>
+              <p className="text-pink-300 italic">
                 నువ్వుంటే చాలు - these words aren't just a song, they're my truth. 
-                You are my everything, Harika. My mornings are empty without your voice, 
-                my evenings are hollow without your laughter.
+                నీ చిరునవ్వు నా ప్రపంచాన్ని వెలిగిస్తుంది. నీ కళ్ళలో నా భవిష్యత్తును చూస్తాను.
+                You are my everything, Harika.
               </p>
 
               <p>
-                I'm truly sorry for everything that hurt you. I promise to be better, 
-                to love you harder, to cherish every moment we have together. 
+                My mornings are empty without your voice, my evenings are hollow without your laughter.
+                I miss the way you smile, the way you look at me, the way you make everything feel right.
+                Every song reminds me of you, every place we've been together haunts me with beautiful memories.
+              </p>
+
+              <p>
+                I remember every moment we shared - our first conversation, our first smile, 
+                our first everything. Those memories are my treasures, and I hold them close to my heart.
+                I want to create millions more memories with you, Harika. I want to grow old with you,
+                laugh with you, cry with you, and love you until my last breath.
+              </p>
+
+              <p>
+                I'm truly sorry for everything that hurt you. I'm sorry for the times I wasn't there,
+                for the times I made you cry, for the times I took you for granted. I promise to be better, 
+                to love you harder, to cherish every moment we have together. You deserve the world,
+                and I want to be the one who gives it to you.
+              </p>
+
+              <p>
                 You are the reason my heart beats, the reason I smile, the reason I believe in love.
+                Without you, I am incomplete. Without you, colors seem dull, music seems silent,
+                and life seems meaningless. You complete me in ways I never knew I was incomplete.
               </p>
 
               <p>
                 This Valentine's Day, I don't need grand gestures or expensive gifts. 
                 All I need is you - your forgiveness, your love, your presence in my life. 
-                You complete me in ways I never knew I was incomplete.
+                I promise to make every day feel like Valentine's Day for you.
               </p>
 
               <p>
                 Will you give me another chance to prove my love? Will you let me 
                 spend every Valentine's Day for the rest of my life making you feel 
-                like the most loved person in the world?
+                like the most loved person in the world? I will wait for you, 
+                no matter how long it takes. My love for you is eternal.
               </p>
 
-              <p className="text-pink-400 font-semibold">
+              <p className="text-pink-400 font-semibold text-lg">
                 I love you more than words can ever express. I miss you more than my heart can bear.
+                నేను నిన్ను ఎప్పటికీ ప్రేమిస్తాను, Harika. You are my forever and always.
               </p>
 
-              <div className="mt-8 text-right">
+              <div className="mt-10 text-right">
                 <p className="font-script text-3xl text-pink-400">Forever Yours,</p>
-                <p className="font-script text-4xl gradient-text mt-2">Umesh</p>
+                <p className="font-script text-5xl gradient-text mt-2">Umesh</p>
+                <p className="text-gray-500 mt-2 text-sm">❤️ With all my heart and soul ❤️</p>
               </div>
             </div>
           </div>
@@ -520,22 +513,23 @@ const GallerySection = () => {
             className="text-center"
             data-testid="gallery-image-umesh"
           >
-            <div className="w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden border-2 border-pink-500/30 shadow-xl shadow-pink-500/20 mx-auto">
+            <div className="w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden border-4 border-pink-500/50 shadow-2xl shadow-pink-500/30 mx-auto">
               <img
                 src={IMAGES.umesh}
                 alt="Umesh"
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: 'center top' }}
               />
             </div>
-            <p className="font-script text-2xl mt-4 text-pink-400">Umesh</p>
+            <p className="font-script text-3xl mt-4 text-pink-400">Umesh</p>
           </motion.div>
 
           <motion.div
-            animate={{ scale: [1, 1.2, 1] }}
+            animate={{ scale: [1, 1.3, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="my-8 md:my-0"
           >
-            <Heart className="w-16 h-16 text-pink-500" fill="#FF007F" />
+            <Heart className="w-20 h-20 text-pink-500" fill="#FF007F" />
           </motion.div>
 
           <motion.div
@@ -546,14 +540,15 @@ const GallerySection = () => {
             className="text-center"
             data-testid="gallery-image-harika"
           >
-            <div className="w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden border-2 border-purple-500/30 shadow-xl shadow-purple-500/20 mx-auto">
+            <div className="w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden border-4 border-purple-500/50 shadow-2xl shadow-purple-500/30 mx-auto">
               <img
                 src={IMAGES.harika}
                 alt="Harika"
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: 'center top' }}
               />
             </div>
-            <p className="font-script text-2xl mt-4 text-purple-400">Harika</p>
+            <p className="font-script text-3xl mt-4 text-purple-400">Harika</p>
           </motion.div>
         </div>
       </div>
@@ -561,10 +556,9 @@ const GallerySection = () => {
   );
 };
 
-// Music Section
+// Music Section with Direct YouTube Iframe
 const MusicSection = () => {
   const [currentSong, setCurrentSong] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <section id="music" className="section-container pb-32">
@@ -585,20 +579,15 @@ const MusicSection = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="music-player mb-8">
-            <div className="video-container mb-6">
-              <ReactPlayer
-                url={`https://www.youtube.com/watch?v=${playlist[currentSong].videoId}`}
-                width="100%"
-                height="100%"
-                playing={isPlaying}
-                controls={true}
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-                config={{
-                  youtube: {
-                    playerVars: { showinfo: 1 }
-                  }
-                }}
+            {/* YouTube Video Player using iframe */}
+            <div className="video-wrapper rounded-2xl overflow-hidden mb-6" style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${playlist[currentSong].videoId}?autoplay=0&rel=0`}
+                title={playlist[currentSong].title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '16px' }}
               />
             </div>
 
@@ -611,29 +600,24 @@ const MusicSection = () => {
                   {playlist[currentSong].artist}
                 </p>
               </div>
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="gradient-button w-14 h-14 rounded-full flex items-center justify-center"
-                data-testid="play-pause-button"
-              >
-                {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
-              </button>
+              <div className="flex items-center gap-1">
+                <span className="w-1.5 h-4 bg-pink-500 rounded animate-pulse"></span>
+                <span className="w-1.5 h-6 bg-pink-500 rounded animate-pulse" style={{ animationDelay: '0.1s' }}></span>
+                <span className="w-1.5 h-3 bg-pink-500 rounded animate-pulse" style={{ animationDelay: '0.2s' }}></span>
+              </div>
             </div>
           </div>
 
           <div className="space-y-3">
             <h4 className="font-body text-sm text-gray-500 uppercase tracking-wider mb-4">
-              Playlist
+              Click to Play
             </h4>
             {playlist.map((song, index) => (
               <motion.div
                 key={song.videoId}
                 whileHover={{ scale: 1.02 }}
-                onClick={() => {
-                  setCurrentSong(index);
-                  setIsPlaying(true);
-                }}
-                className={`playlist-item flex items-center justify-between ${
+                onClick={() => setCurrentSong(index)}
+                className={`playlist-item flex items-center justify-between cursor-pointer ${
                   currentSong === index ? 'active' : ''
                 }`}
                 data-testid={`playlist-item-${index}`}
@@ -645,11 +629,11 @@ const MusicSection = () => {
                     <p className="font-body text-gray-500 text-sm">{song.artist}</p>
                   </div>
                 </div>
-                {currentSong === index && isPlaying && (
+                {currentSong === index && (
                   <div className="flex items-center gap-1">
                     <span className="w-1 h-3 bg-pink-500 rounded animate-pulse"></span>
-                    <span className="w-1 h-4 bg-pink-500 rounded animate-pulse delay-75"></span>
-                    <span className="w-1 h-2 bg-pink-500 rounded animate-pulse delay-150"></span>
+                    <span className="w-1 h-4 bg-pink-500 rounded animate-pulse" style={{ animationDelay: '75ms' }}></span>
+                    <span className="w-1 h-2 bg-pink-500 rounded animate-pulse" style={{ animationDelay: '150ms' }}></span>
                   </div>
                 )}
               </motion.div>
@@ -673,7 +657,7 @@ const Footer = () => {
         <Heart className="w-8 h-8 text-pink-500" fill="#FF007F" />
       </motion.div>
       <p className="font-script text-2xl gradient-text">Made with love for Harika</p>
-      <p className="font-body text-gray-500 text-sm mt-2">From Umesh, with all my heart</p>
+      <p className="font-body text-gray-500 text-sm mt-2">From Umesh, with all my heart ❤️</p>
     </footer>
   );
 };
