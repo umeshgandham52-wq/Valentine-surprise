@@ -481,7 +481,7 @@ const LoginPage = ({ onLogin }) => {
   );
 };
           <stop offset="100%" stopColor="#8B5CF6" />
-        </linearGradient>
+      </linearGradient>
       <svg width="100" height="50" viewBox="0 0 100 50">
   <defs>
     <linearGradient id="boyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
