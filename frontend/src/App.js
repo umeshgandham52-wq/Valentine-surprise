@@ -1238,7 +1238,8 @@ const Navigation = () => {
           <a href="#letter" className="nav-link">Letter</a>
           <a href="#quiz" className="nav-link">Quiz</a>
           <a href="#music" className="nav-link">Songs</a>
-          <a href="#proposal" className="nav-link text-pink-500">💍 Proposal</a>
+          <a href="#proposal" className="nav-link">💍 Proposal</a>
+          <a href="#my-wife" className="nav-link text-pink-500">💕 My Wife</a>
         </div>
       </div>
     </motion.nav>
