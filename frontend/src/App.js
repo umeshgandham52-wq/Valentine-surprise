@@ -490,12 +490,16 @@ const LoginPage = ({ onLogin }) => {
     </linearGradient>
   </defs>
 
-    <circle cx="50" cy="25" r="20" 
-    fill="url(#boyGradient)" />
+  <circle cx="50" cy="25" r="20" 
+  fill="url(#boyGradient)" />
       {/* Body */}
-    <path d="M50 45 L50 90 M50 55 L25 75 M50 55 L75 75 M50 90 L30 130 M50 90 L70 130" 
-            stroke="url(#boyGradient)" strokeWidth="8" strokeLinecap="round" fill="none" />
-   </svg>
+  <path d="M50 45 L50 90 M50 55 L25 75 M50 55 L75 75 M50 90 L30 130 M50 90 L70 130" 
+            stroke="url(#boyGradient)" 
+            strokeWidth="8" 
+            strokeLinecap="round" 
+            fill="none" 
+  />
+  </svg>
   );
 
   // Girl Silhouette SVG
