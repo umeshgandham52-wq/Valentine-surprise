@@ -1464,6 +1464,142 @@ const MusicSection = () => {
   );
 };
 
+// My Wife Section - Special tribute to Harika
+const MyWifeSection = () => {
+  return (
+    <section id="my-wife" className="section-container py-20">
+      <div className="content-wrapper">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          {/* Wedding Rings Icon */}
+          <motion.div
+            animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.1, 1] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="mb-8"
+          >
+            <div className="inline-flex items-center justify-center">
+              <svg viewBox="0 0 100 50" className="w-24 h-12 md:w-32 md:h-16">
+                <defs>
+                  <linearGradient id="ringGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FFD700" />
+                    <stop offset="50%" stopColor="#FFA500" />
+                    <stop offset="100%" stopColor="#FFD700" />
+                  </linearGradient>
+                </defs>
+                {/* Interlinked wedding rings */}
+                <circle cx="35" cy="25" r="18" fill="none" stroke="url(#ringGold)" strokeWidth="5" />
+                <circle cx="65" cy="25" r="18" fill="none" stroke="url(#ringGold)" strokeWidth="5" />
+                {/* Diamond on one ring */}
+                <polygon points="35,7 32,12 38,12" fill="#FFFFFF" />
+                <polygon points="35,7 32,12 35,10 38,12" fill="#E0E0E0" />
+              </svg>
+            </div>
+          </motion.div>
+
+          <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
+            <span className="gradient-text">My Beautiful Wife</span>
+          </h2>
+          
+          <h3 className="font-script text-3xl md:text-4xl text-purple-400 mb-8">
+            Mrs. Harika Umesh
+          </h3>
+
+          <div className="glass-card max-w-4xl mx-auto p-8 md:p-12 rounded-3xl">
+            {/* Photos together */}
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="relative"
+              >
+                <img
+                  src={IMAGES.umesh}
+                  alt="Umesh"
+                  className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-pink-500 shadow-lg"
+                  style={{ objectPosition: 'center top' }}
+                />
+              </motion.div>
+              
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <svg viewBox="0 0 50 50" className="w-12 h-12 md:w-16 md:h-16">
+                  <circle cx="18" cy="25" r="12" fill="none" stroke="#FFD700" strokeWidth="3" />
+                  <circle cx="32" cy="25" r="12" fill="none" stroke="#FFD700" strokeWidth="3" />
+                </svg>
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="relative"
+              >
+                <img
+                  src={IMAGES.harika}
+                  alt="Harika"
+                  className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-purple-500 shadow-lg"
+                  style={{ objectPosition: 'center top' }}
+                />
+              </motion.div>
+            </div>
+
+            <div className="space-y-6 font-body text-gray-200 text-lg leading-relaxed">
+              <p>
+                <span className="text-pink-400 font-semibold text-xl">Harika</span>, you are not just my wife, 
+                you are my best friend, my soulmate, and the love of my life. The day you became my wife 
+                was the best day of my existence.
+              </p>
+
+              <p>
+                Being married to you is the greatest blessing I could ever ask for. 
+                Every morning I wake up grateful that you chose to spend your life with me. 
+                You make our house a home, and my life complete.
+              </p>
+
+              <p className="text-pink-300 italic">
+                From girlfriend to wife - every chapter with you has been beautiful. 
+                I promise to love you, cherish you, and stand by you for all the days of my life.
+              </p>
+
+              <p>
+                Thank you for being my partner in this journey called life. 
+                Thank you for your love, your patience, your smile, and everything you do for us. 
+                I am the luckiest husband in the world.
+              </p>
+
+              <motion.p
+                className="text-2xl text-pink-400 font-semibold mt-8"
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                Forever your loving husband,<br />
+                <span className="font-script text-3xl gradient-text">Umesh</span>
+              </motion.p>
+            </div>
+
+            {/* Decorative hearts */}
+            <div className="flex justify-center gap-3 mt-8">
+              {[...Array(7)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ y: [0, -10, 0], rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.15 }}
+                >
+                  <Heart className="w-6 h-6 text-pink-500" fill="#FF007F" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 // Footer
 const Footer = () => {
   return (
@@ -1471,8 +1607,8 @@ const Footer = () => {
       <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }} className="inline-block mb-4">
         <Heart className="w-8 h-8 text-pink-500" fill="#FF007F" />
       </motion.div>
-      <p className="font-script text-2xl gradient-text">Made with love for Harika</p>
-      <p className="font-body text-gray-500 text-sm mt-2">From Umesh, with all my heart ❤️</p>
+      <p className="font-script text-2xl gradient-text">Made with love for my wife Harika</p>
+      <p className="font-body text-gray-500 text-sm mt-2">From your husband Umesh, with all my heart 💍❤️</p>
     </footer>
   );
 };
