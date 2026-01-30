@@ -1641,6 +1641,7 @@ const ValentineApp = () => {
               <RomanticQuotesSection />
               <MusicSection />
               <ProposalSection />
+              <MyWifeSection />
             </main>
             <Footer />
           </motion.div>
