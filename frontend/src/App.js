@@ -1654,6 +1654,7 @@ const ValentineApp = () => {
 
 function App() {
   return (
+    <>
     <BrowserRouter>
       <Routes>
         <Route path="/*" element={<ValentineApp />} />
