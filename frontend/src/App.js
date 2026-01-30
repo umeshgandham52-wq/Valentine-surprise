@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import ReactPlayer from "react-player/youtube";
+import ReactPlayer from "react-player";
 import { Heart, Lock, Music, Play, Pause, ChevronDown, Calendar, Gift, Star, Sparkles } from "lucide-react";
 
 // Images from design guidelines
